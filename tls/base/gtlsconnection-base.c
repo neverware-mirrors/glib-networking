@@ -2000,9 +2000,10 @@ g_tls_connection_base_read_message (GTlsConnectionBase  *tls,
     /* Copy data out of the app data buffer first. */
     if (priv->app_data_buf && !priv->handshaking)
       {
+        guint i = 0;
         nread = 0;
 
-        for (guint i = 0; i < num_vectors; i++)
+        for (i = 0; i < num_vectors; i++)
           {
             gsize count;
             GInputVector *vec = &vectors[i];
